@@ -28,6 +28,10 @@ function App() {
     setPracticeEntries(prevEntries => [...prevEntries, newEntry])
   }
 
+  function onDeleteEntry(id: number) {
+    setPracticeEntries(prevEntries => prevEntries.filter(entry => entry.id != id))
+  }
+
 
 
   return (
@@ -35,7 +39,7 @@ function App() {
     <main className='min-h-screen flex flex-col items-center justify-center  p-6'>
       <div className='w-full max-w-xl'>
         <PracticeForm onAddEntry={onAddEntry}/>
-        <PracticeLog entries={practiceEntries} />
+        <PracticeLog entries={practiceEntries} onDeleteEntry={onDeleteEntry}/>
       </div>
     </main>
   

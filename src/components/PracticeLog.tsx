@@ -3,9 +3,10 @@ import PracticeEntryCard from "./PracticeEntryCard"
 
 type Props = {
     entries: PracticeEntry[]
+    onDeleteEntry: (id: number) => void
 }
 
-export default function PracticeLog({entries}: Props) {
+export default function PracticeLog({entries, onDeleteEntry}: Props) {
     return (
         <section className="flex flex-col justify-center items-center">
             <h2>Practice Log</h2>
@@ -15,7 +16,7 @@ export default function PracticeLog({entries}: Props) {
             )}
 
             {entries.map(entry => (
-                <PracticeEntryCard key={entry.id} entry={entry}/>
+                <PracticeEntryCard key={entry.id} entry={entry} onDelete={() => onDeleteEntry(entry.id)}/>
                ))}
         </section>
 
