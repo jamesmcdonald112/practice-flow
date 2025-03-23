@@ -42,4 +42,4 @@ test("renders a practice entry with piece name", () => {
 
     // Date
     expect(screen.getByText("2025-03-21")).toBeInTheDocument()
-})q
+})

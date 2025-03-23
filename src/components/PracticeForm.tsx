@@ -14,7 +14,7 @@ export default function PracticeForm({onAddEntry}: Props) {
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault()
 
-        const newEnrty = {
+        const newEntry = {
             piece,
             composer,
             duration,
@@ -22,7 +22,7 @@ export default function PracticeForm({onAddEntry}: Props) {
             notes
         }
 
-        onAddEntry(newEnrty)
+        onAddEntry(newEntry)
 
         setPiece("")
         setComposer("")
@@ -38,39 +38,45 @@ export default function PracticeForm({onAddEntry}: Props) {
 
     return (
         <form onSubmit={handleSubmit}  className="flex flex-col  gap-2 border border-white rounded-md p-4 m-4 shadow-md">
+            <label htmlFor="piece">Piece</label>
             <input  
+                id="piece"
                 className={inputBaseStyles}
                 type="text"
                 placeholder="Elegie in Eb minor"
                 value={piece}
                 onChange={(e) => setPiece(e.target.value)}
-                aria-label="Piece"
             />
+            <label htmlFor="composer">Composer</label>
             <input 
+                id="composer"
                 className={inputBaseStyles}
                 type="text" 
                 placeholder="Rachmainoff"
                 value={composer}
                 onChange={(e) => setComposer(e.target.value)}
-                aria-label="Composer"
             />
+            <label htmlFor="duration">Duration</label>
             <input 
+                id="duration"
                 className={inputBaseStyles}
                 type="number"
                 placeholder="6"
                 value={duration}
                 onChange={(e) => setDuration(Number(e.target.value))}
-                aria-label="duration"
             />
+            <label htmlFor="focusArea">Focus Area</label>
             <input 
+                id="focusArea"
                 className={inputBaseStyles}
                 type="text" 
                 placeholder="B section"
                 value={focusArea}
                 onChange={(e) => setFocusArea(e.target.value)}
-                aria-label="Focus Area"
             />
+            <label htmlFor="notes">Notes</label>
             <textarea
+                id="notes"
                 className={inputBaseStyles}
                 placeholder="I need to practice slowly..."
                 value={notes}
