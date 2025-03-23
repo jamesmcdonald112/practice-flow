@@ -3,21 +3,13 @@ import PracticeForm from './components/PracticeForm'
 import PracticeLog from './components/PracticeLog'
 import './App.css'
 import type { PracticeEntry, PracticeEntryInput } from './types'
+import { usePracticeEntries } from './hooks/usePracticeEntries'
+
 
 
 
 function App() {
-  const [practiceEntries, setPracticeEntries] =useState<PracticeEntry[]>([
-    {
-      id: 1,
-      piece: "Elegie",
-      composer: "Rach",
-      duration: 4,
-      focusArea: "B section",
-      notes: "Play slowly",
-      date: "2025-03-21"
-    }
-  ])
+  const [practiceEntries, setPracticeEntries] = usePracticeEntries()
   
   function onAddEntry(entry: PracticeEntryInput) {
     const newEntry: PracticeEntry = {
@@ -25,11 +17,11 @@ function App() {
       id: Math.random(),
       date: new Date().toISOString().split("T")[0]
     }
-    setPracticeEntries(prevEntries => [...prevEntries, newEntry])
+    setPracticeEntries([...practiceEntries, newEntry])
   }
 
   function onDeleteEntry(id: number) {
-    setPracticeEntries(prevEntries => prevEntries.filter(entry => entry.id != id))
+    setPracticeEntries(practiceEntries.filter(entry => entry.id != id))
   }
 
 
