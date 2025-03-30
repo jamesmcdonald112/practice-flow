@@ -1,0 +1,7 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      "outDir": "../dist/server"
+    },
+    "include": ["src", "tests", "zodStuff/zodLesson1.ts", "zodStuff/zodLesson1.js"]
+  }
